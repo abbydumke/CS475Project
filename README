@@ -17,4 +17,8 @@ individual ride wait times varying from 5 to over 100 minutes, strategic timing 
 (ThrillData). Selecting not only the right time to visit Disney World but also the time of day for
 specific rides is key to enhancing your overall experience.
 
-
+The My Disney Experience app displays real-time wait times for rides at all theme parks, but 
+lacks data on average wait times per ride. Given the various factors that influence vacation 
+planning, such as wait times and reservations, I believe that the creation of a data visualization 
+tool that would allow users to compare monthly hourly average wait times for individual rides, 
+would be great for planning purposes.
