@@ -1,12 +1,12 @@
-# Project Title
+## Project Title
 Optimizing the Magic: A Data-Driven Approach for Enhancing Ride Experiences at Disney World
 
-# Author Information
+## Author Information
 Abby Dumke
 Furman University 2024
 abby.dumke@furman.edu
 
-# Background
+## Background
 A trip to Disney World is a dream vacation for many worldwide. With four theme parks and two
 water parks filled with attractions, shows, restaurants, and shops, planning this magical 
 experience can be challenging, especially considering the high costs associated with "the most 
@@ -22,3 +22,30 @@ lacks data on average wait times per ride. Given the various factors that influe
 planning, such as wait times and reservations, I believe that the creation of a data visualization 
 tool that would allow users to compare monthly hourly average wait times for individual rides, 
 would be great for planning purposes.
+
+## Goal
+I will consider these questions throughout my project:
+1. Are there hourly trends for wait times on different rides?
+2. Can using ride time data optimize for planning optimize one's trip
+to Disney World?
+
+I propose the creation of a data visualization tool that enables users to compare wait times based
+on individual rides. I want to gather data from the past year (February 2023- January 2024) and
+get the monthly hourly average wait times per ride. With this data, I want to make a visualization
+tool where I can select a specific month, then select specific rides, and compare the queue time. 
+I believe that this could be extremely helpful when making reservations. For example, if I wanted 
+to make meal reservations at a table service restaurant, I can go on this data tool, select the 
+month I will be traveling, click the rides I want to go on, and if there is a specific time where all of 
+the rides I want to go on are very high, I will make meal plans then. Or another example, if I am 
+going to multiple parks in one day, I can go on this data tool, select the month I will be traveling,
+click the rides from different parks I want to go on, and see if there is a longer wait time for those 
+rides at a specific time of day. 
+
+I think that having a tool like this could potentially ease the planning and maximize one’s trip to 
+Disney World. I know that there will be a definite change in time of year (monthly averages), but I 
+am hoping to find trends based on time of day. Ideally, I would like to include all rides at Disney 
+World; however, since there are so many attractions, it might be challenging to include all of 
+them. I will start by gathering data for the most popular rides at each park, and if I have time I can 
+get the data for more rides.
+
+
