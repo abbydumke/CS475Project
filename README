@@ -1,10 +1,12 @@
 # Project Title
 Optimizing the Magic: A Data-Driven Approach for Enhancing Ride Experiences at Disney World
 
+
 ## Author Information
 Abby Dumke
 Furman University 2024
 abby.dumke@furman.edu
+
 
 ## Background
 A trip to Disney World is a dream vacation for many worldwide. With four theme parks and two
@@ -22,5 +24,65 @@ lacks data on average wait times per ride. Given the various factors that influe
 planning, such as wait times and reservations, I believe that the creation of a data visualization
 tool that would allow users to compare monthly hourly average wait times for individual rides,
 would be great for planning purposes.
+
+
+## Goals 
+I will consider these questions throughout my project:
+1. Are there hourly trends for wait times on different rides?
+2. Can using ride time data optimize for planning optimize one's trip to Disney World?
+
+I propose the creation of a data visualization tool that enables users to compare wait times based 
+on individual rides. I want to gather data from the past year (February 2023- January 2024) and
+get the monthly hourly average wait times per ride. With this data, I want to make a visualization
+tool where I can select a specific month, then select specific rides, and compare the queue time. 
+I believe that this could be extremely helpful when making reservations. For example, if I wanted 
+to make meal reservations at a table service restaurant, I can go on this data tool, select the 
+month I will be traveling, click the rides I want to go on, and if there is a specific time where all of 
+the rides I want to go on are very high, I will make meal plans then. Or another example, if I am 
+going to multiple parks in one day, I can go on this data tool, select the month I will be traveling, 
+click the rides from different parks I want to go on, and see if there is a longer wait time for those 
+rides at a specific time of day. 
+
+I think that having a tool like this could potentially ease the planning and maximize one’s trip to 
+Disney World. I know that there will be a definite change in time of year (monthly averages), but I 
+am hoping to find trends based on time of day. Ideally, I would like to include all rides at Disney 
+World; however, since there are so many attractions, it might be challenging to include all of 
+them. I will start by gathering data for the most popular rides at each park, and if I have time I can 
+get the data for more rides.
+
+
+## Data
+https://touringplans.com/ 
+https://www.thrill-data.com/ 
+Both of these sites have daily wait time data for each attraction at all parks, and the Touring Plan site 
+also has forecasted wait times for any given day. From the datasets on either site, I can create a new data set 
+with monthly hourly averages. The data is constantly being updated with current and past wait times for all rides.
+
+
+## Methods
+While there are currently platforms where you can look at past wait times for different rides and average 
+wait times, there are no tools where you can select a month and only look at monthly hourly average wait 
+times for individual rides. Additionally, most of the sites that are available are hard to read and hard to 
+navigate. The Thrill Data site does have a monthly hourly wait time view, but there is no average on listed, 
+rather it shows all wait times in the past 30 days and you can only look at one ride at a time.
+
+I want to gather the hourly wait times per ride and get a monthly average for each hour for ease of reading 
+the graph. From that, I will use that data to create my visualization dashboard where you first click a 
+desired month and then a graph will appear with a select/deselect option for rides on the right side. 
+
+
+## Evaluation
+This project's success will be measured by whether my proposed questions can be answered. As 
+mentioned in the background, there is data to back up that there are specific months to go to Florida based 
+on average wait times. I am hoping that this project can identify the best month and even hour of day to go 
+on a ride.
+
+
+## Dissemination
+The final software of my project can be publicly available for everyone, and I am willing to make my final 
+report public on some server. I do not think that I need to live demo my project on a computer at Furman 
+Engaged, but can do so if need be.
+
+
 
 
