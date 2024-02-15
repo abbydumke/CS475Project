@@ -1,12 +1,12 @@
 # Project Title
 Optimizing the Magic: A Data-Driven Approach for Enhancing Ride Experiences at Disney World
 
-# Author Information
+## Author Information
 Abby Dumke
 Furman University 2024
 abby.dumke@furman.edu
 
-# Background
+## Background
 A trip to Disney World is a dream vacation for many worldwide. With four theme parks and two
 water parks filled with attractions, shows, restaurants, and shops, planning this magical 
 experience can be challenging, especially considering the high costs associated with "the most 
@@ -16,5 +16,11 @@ Disney has to offer. With average monthly wait times ranging from 30 to over 45 
 individual ride wait times varying from 5 to over 100 minutes, strategic timing is crucial 
 (ThrillData). Selecting not only the right time to visit Disney World but also the time of day for
 specific rides is key to enhancing your overall experience.
+
+The My Disney Experience app displays real-time wait times for rides at all theme parks, but
+lacks data on average wait times per ride. Given the various factors that influence vacation
+planning, such as wait times and reservations, I believe that the creation of a data visualization
+tool that would allow users to compare monthly hourly average wait times for individual rides,
+would be great for planning purposes.
 
 
