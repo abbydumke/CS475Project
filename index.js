@@ -9,6 +9,7 @@ function filterMarkers() {
 
   console.log("Filtering markers");
 
+  selected_parks = [];
   //get selected parks using jquery
   $('input[type=checkbox]:checked').each(function() {
     selected_parks.push($(this).attr('value'));
@@ -24,15 +25,17 @@ function filterMarkers() {
   drawMarkers();
 }
 
-function drawMarkers(map, infoWindow) { 
+function drawMarkers() { 
   d3.csv("location_data_disney.csv", function (data) {
     data.forEach(function (d) {
 
-      // if (selected_parks.length > 0) {
         // console.log("Selected "+selected_parks);
         // console.log("curr park "+d.PARK);
+        console.log(selected_parks);
         console.log((selected_parks.includes(d.PARK)));
-        if (selected_parks.includes(d.PARK)) {
+        console.log(map);
+        console.log(infoWindow);
+        if ((selected_parks.length == 0) || (selected_parks.includes(d.PARK))) {
 
           const marker = new google.maps.Marker({
             className: "marker_"+d.PARK,
