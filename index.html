@@ -6,7 +6,22 @@
     
     <link rel="stylesheet" type="text/css" href="./style.css" />
     <script type="module" src="./index.js"></script> 
-    
+    <!-- import jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <script>
+      function filterMarkers() {
+
+          //get selected parks 
+          var selectedParks = [];
+          var checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
+          for (var i = 0; i < checkboxes.length; i++) {
+            selectedParks.push(checkboxes[i].value);
+          }
+          console.log("Selected "+selectedParks);
+        }
+    </script> -->
+  </head>
+  <body>
     <div id="map"></div>
     
   
@@ -42,20 +57,33 @@
     <div class="floating-panel">
       <h2>Filter:</h2>
       <h3>By Month:</h3>
+      <input type="radio" id="month" name="select_month" value="January">
+      <label for="month">January</label><br>
+      <input type="radio" id="month" name="select_month" value="February">
+      <label for="month">February</label><br>
+      <input type="radio" id="month" name="select_month" value="March">
+      <label for="month">March</label><br>
+      <input type="radio" id="month" name="select_month" value="April">
+      <label for="month">April</label><br>
+
+
       <div class="container">
       <hr>
       <h3>By Park:</h3>
       <div class="container">
-        <input type="checkbox" id="animalkingdom" name="animalkingdom" value="animalkingdom">
+        <input type="checkbox" id="animalkingdom" name="animalkingdom" value="ANIMAL KINGDOM" >
         <label for="animalkingdom">Animal Kingdom</label>
+      </div>
       <div class="container">
-        <input type="checkbox" id="epcot" name="epcot" value="epcot">
+        <input type="checkbox" id="epcot" name="epcot" value="EPCOT">
         <label for="epcot">Epcot</label>
+      </div>
       <div class="container">
-        <input type="checkbox" id="hollywoodstudios" name="hollywoodstudios" value="hollywoodstudios">
+        <input type="checkbox" id="hollywoodstudios" name="hollywoodstudios" value="HOLLYWOOD STUDIOS" >
         <label for="hollywoodstudios">Hollywood Studios</label>
+      </div>
       <div class="container">
-        <input type="checkbox" id="magickingdom" name="magickingdom" value="magickingdom">
+        <input type="checkbox" id="magickingdom" name="magickingdom" value="MAGIC KINGDOM" >
         <label for="magickingdom">Magic Kingdom</label>
       </div>
       <hr>
@@ -73,3 +101,4 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAACd_oTrV0i8LlICe3P_oOhOTTwwoQaw&callback=initMap&v=weekly"
       defer
     ></script>
+</body>
