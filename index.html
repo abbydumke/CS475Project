@@ -1,9 +1,11 @@
 <html>
+  <!DOCTYPE html>
+  <meta charset="utf-8">
   <head>
     <title>Simple Markers</title>
+    <script src="https://d3js.org/d3.v4.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script src="//d3js.org/d3.v3.min.js"></script>
-    
+    <!-- <script src="//d3js.org/d3.v3.min.js"></script> -->
     <link rel="stylesheet" type="text/css" href="./style.css" />
     <script type="module" src="./index.js"></script> 
     <!-- import jquery -->
@@ -82,6 +84,23 @@
       <input type="radio" id="month" name="select_month" value="December">
       <label for="month">December</label><br>
       <!-- <hr> -->
+      
+      <label for="month"><h3>By Month:</h3></label>
+
+      <select name="month" id="month">
+        <option value="January">January</option>
+        <option value="February">February</option>
+        <option value="March">March</option>
+        <option value="April">April</option>
+        <option value="May">May</option>
+        <option value="June">June</option>
+        <option value="July">July</option>
+        <option value="August">August</option>
+        <option value="September">September</option>
+        <option value="October">October</option>
+        <option value="November">November</option>
+        <option value="December">December</option>
+      </select>
 
 
       <div class="container">
@@ -109,6 +128,7 @@
     <button>Compare Waits</button>
     <button>Best Times</button>
   </div> 
+  <!-- <div id="my_dataviz"></div> -->
 </div>
 
 
