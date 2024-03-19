@@ -5,21 +5,71 @@
     <script src="//d3js.org/d3.v3.min.js"></script>
     
     <link rel="stylesheet" type="text/css" href="./style.css" />
-    <script type="module" src="./index.js"></script>
-  </head>
-  <body>
+    <script type="module" src="./index.js"></script> 
+    
     <div id="map"></div>
+    
+  
+    <style>
+      .floating-panel {
+        position: fixed;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 200px;
+        height: 600px;
+        background-color: #f1f1f1;
+        padding: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      } 
+      .title-panel {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -35%);
+        width: 800px;
+        height: 50px;
+        background-color: #f1f1f1;
+        padding: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+    </style>
+    <div class="title-panel">
+      
+      <h1>Title</h1>
+    </div>
+    <div class="floating-panel">
+      <h2>Filter:</h2>
+      <h3>By Month:</h3>
+      <div class="container">
+      <hr>
+      <h3>By Park:</h3>
+      <div class="container">
+        <input type="checkbox" id="animalkingdom" name="animalkingdom" value="animalkingdom">
+        <label for="animalkingdom">Animal Kingdom</label>
+      <div class="container">
+        <input type="checkbox" id="epcot" name="epcot" value="epcot">
+        <label for="epcot">Epcot</label>
+      <div class="container">
+        <input type="checkbox" id="hollywoodstudios" name="hollywoodstudios" value="hollywoodstudios">
+        <label for="hollywoodstudios">Hollywood Studios</label>
+      <div class="container">
+        <input type="checkbox" id="magickingdom" name="magickingdom" value="magickingdom">
+        <label for="magickingdom">Magic Kingdom</label>
+      </div>
+      <hr>
 
-    <!-- 
-      The `defer` attribute causes the callback to execute after the full HTML
-      document has been parsed. For non-blocking uses, avoiding race conditions,
-      and consistent behavior across browsers, consider loading using Promises.
-      See https://developers.google.com/maps/documentation/javascript/load-maps-js-api
-      for more information.
-      -->
+  <div style="text-align: center;">
+    <button>Compare Waits</button>
+    <button>Best Times</button>
+  </div> 
+</div>
+
+
+
+</style>    
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAACd_oTrV0i8LlICe3P_oOhOTTwwoQaw&callback=initMap&v=weekly"
       defer
     ></script>
-  </body>
-</html>
