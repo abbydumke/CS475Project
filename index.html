@@ -58,50 +58,30 @@
     </div>
     <div class="floating-panel">
       <h2>Filter:</h2>
-      <h3>By Month:</h3>
-      <input type="radio" id="month" name="select_month" value="January">
-      <label for="month">January</label><br>
-      <input type="radio" id="month" name="select_month" value="February">
-      <label for="month">February</label><br>
-      <input type="radio" id="month" name="select_month" value="March">
-      <label for="month">March</label><br>
-      <input type="radio" id="month" name="select_month" value="April">
-      <label for="month">April</label><br>
-      <input type="radio" id="month" name="select_month" value="May">
-      <label for="month">May</label><br>
-      <input type="radio" id="month" name="select_month" value="June">
-      <label for="month">June</label><br>
-      <input type="radio" id="month" name="select_month" value="July">
-      <label for="month">July</label><br>
-      <input type="radio" id="month" name="select_month" value="August">
-      <label for="month">August</label><br>
-      <input type="radio" id="month" name="select_month" value="September">
-      <label for="month">September</label><br>
-      <input type="radio" id="month" name="select_month" value="October">
-      <label for="month">October</label><br>
-      <input type="radio" id="month" name="select_month" value="November">
-      <label for="month">November</label><br>
-      <input type="radio" id="month" name="select_month" value="December">
-      <label for="month">December</label><br>
-      <!-- <hr> -->
       
+    
       <label for="month"><h3>By Month:</h3></label>
-
       <select name="month" id="month">
-        <option value="January">January</option>
-        <option value="February">February</option>
-        <option value="March">March</option>
-        <option value="April">April</option>
-        <option value="May">May</option>
-        <option value="June">June</option>
-        <option value="July">July</option>
-        <option value="August">August</option>
-        <option value="September">September</option>
-        <option value="October">October</option>
-        <option value="November">November</option>
-        <option value="December">December</option>
+        <option value="overall"></option>
+        <option value="JAN">January</option>
+        <option value="FEB">February</option>
+        <option value="MAR">March</option>
+        <option value="APR">April</option>
+        <option value="MAY">May</option>
+        <option value="JUN">June</option>
+        <option value="JUL">July</option>
+        <option value="AUG">August</option>
+        <option value="SEP">September</option>
+        <option value="OCT">October</option>
+        <option value="NOV">November</option>
+        <option value="DEC">December</option>
       </select>
-
+         <!-- when month is selected, call initMap() in index.js-->
+      <script>
+        document.getElementById("month").addEventListener("change", function() {
+          initMap();
+        });
+      </script>
 
       <div class="container">
       <hr>
@@ -125,12 +105,32 @@
       <hr>
 
   <div style="text-align: center;">
-    <button>Compare Waits</button>
-    <button>Best Times</button>
+    <button id="comparewaits">Compare Waits</button>
+    <button id="besttime">Best Times</button>
   </div> 
-  <!-- <div id="my_dataviz"></div> -->
+  
+  <div>
+    <h3>Key:</h3>
+    <div style="text-align: center; background-color: rgb(255, 126, 126); width: 200px; height: 20px; display: inline-block; ">Moving Ride</div> 
+    <div style="width: 20px; height: 15px; display: inline-block;"></div>
+    <div style="text-align: center; background-color: rgb(37, 209, 37); width: 200px; height: 20px; display: inline-block;">Rollercoaster</div>
+    <div style="width: 20px; height: 15px; display: inline-block;"></div>
+    <div style="text-align: center; background-color: rgb(119, 146, 255); width: 200px; height: 20px; display: inline-block;">Boat Ride</div>
+    <div style="width: 20px; height: 15px; display: inline-block;"></div>
+    <div style="text-align: center; background-color: rgb(255, 118, 182); width: 200px; height: 20px; display: inline-block;">Simulation</div>
 </div>
 
+<script>
+ document.getElementById("besttime").addEventListener("click", function() {
+    window.location.href = "besttime.html";
+  });
+</script>
+
+<script>
+  document.getElementById("comparewaits").addEventListener("click", function() {
+     window.location.href = "comparewaits.html";
+   });
+ </script>
 
 
 </style>    
