@@ -2,6 +2,7 @@
 const center = { lat: 28.39109030017273, lng: -81.58097911833917};
 var all_markers = [];
 var selected_parks = [];
+var rides = [];
 var map = null;
 var infoWindow = null;
 
@@ -21,11 +22,10 @@ function filterMarkers() {
   }
 
   all_markers = [];
-  
   drawMarkers();
 }
 
-function makeLinePlot(ride, month){
+function makeLinePlot(rides, month){
   // set the dimensions and margins of the graph
   var margin = {top: 10, right: 30, bottom: 30, left: 30},
   width = 600 - margin.left - margin.right,
@@ -51,8 +51,11 @@ function makeLinePlot(ride, month){
     .call(d3.axisBottom(x))
 
 
-
+  
   d3.csv("overallwait1.csv", function(data) {
+    //for each element in rides, do something
+    rides.forEach(function(ride){
+    console.log(ride);
     //get all data rows where D.RIDE == ride
     data = data.filter(function(d) {
       return d.RIDE == ride;
@@ -109,15 +112,16 @@ function makeLinePlot(ride, month){
         .x(function(d) { return x(d.TIME_OF_DAY) })
         .y(function(d) { return y(d.AVERAGE_WAIT_TIME_MIN) })
       )
-
+    });
   })  
+  rides = [];
 }
 
 function makeBoxPlot(ride){
     // set the dimensions and margins of the graph
     var margin = {top: 10, right: 30, bottom: 30, left: 30},
         width = 600 - margin.left - margin.right,
-        height = 500 - margin.top - margin.bottom;
+        height = 525 - margin.top - margin.bottom;
 
     // append the svg object to the body of the page
     var svg = d3.select("#my_dataviz")
@@ -145,11 +149,17 @@ function makeBoxPlot(ride){
         .call(d3.axisBottom(x))
 
       // Show the Y scale
+      //get the max of the max values
       var ymax = d3.max(data, function(d) { return d.max; });
       var ymin = d3.min(data, function(d) { return d.min; });
       var y = d3.scaleLinear()
-        .domain([ymin + 0, ymax - 20])
-        .range([height, 0])
+      var domainValue = (ride !== 'SLINKY DOG DASH' && ride !== 'RISE OF RESISTANCE' && ride !== 'AVATAR FLIGHT PASSAGE') ? ymax : 125;
+      domainValue = (ride == 'KILAMANJARO SAFARIS') ? 70 : domainValue;
+      y.domain([0, domainValue]);
+
+
+        //.domain([0, 125])
+        y.range([height, 0])
         svg.append("g").call(d3.axisLeft(y))
 
       svg
@@ -162,7 +172,7 @@ function makeBoxPlot(ride){
         .attr("y1", function(d){return(y(d.min))})
         .attr("y2", function(d){return(y(d.max))})
         .attr("stroke", "black")
-        .style("width", 40)
+        .style("width", 60)
 
     
     // rectangle for the main box
@@ -192,12 +202,8 @@ function makeBoxPlot(ride){
       .attr("y1", function(d){return(y(d["50%"]))})
       .attr("y2", function(d){return(y(d["50%"]))})
       .attr("stroke", "black")
-      .style("width", 80)
-
-
-        
+      .style("width", 80)   
     });
-      
 }
 
 
@@ -243,14 +249,14 @@ function drawMarkers() {
             infoWindow.open(map, marker);
             //get month by finding the selected month in index.html
             var month = document.getElementById("month").value;
-
+            rides.push(d.RIDE);
             console.log(month);
 
             if (month == "overall"){
               makeBoxPlot(d.RIDE);
             }
             else{
-              makeLinePlot(d.RIDE, month)
+              makeLinePlot(rides, month)
             }
 
             
@@ -268,9 +274,20 @@ function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     zoom: 13,
     center: center,
+    disableDefaultUI: true, // Disable default UI controls
+    styles: [
+      {
+        featureType: "poi",
+        elementType: "labels",
+        stylers: [
+          {
+            visibility: "off" // Hide points of interest labels
+          }
+        ]
+      }
+    ]
   });
   infoWindow = new google.maps.InfoWindow();
-
   drawMarkers(map, infoWindow);
 
   //Set onclick event for checkboxes using jQuery
