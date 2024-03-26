@@ -10,48 +10,11 @@
     <script type="module" src="./index.js"></script> 
     <!-- import jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- <script>
-      function filterMarkers() {
 
-          //get selected parks 
-          var selectedParks = [];
-          var checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
-          for (var i = 0; i < checkboxes.length; i++) {
-            selectedParks.push(checkboxes[i].value);
-          }
-          console.log("Selected "+selectedParks);
-        }
-    </script> -->
   </head>
   <body>
     <div id="map"></div>
     
-  
-    <style>
-      .floating-panel {
-        position: fixed;
-        top: 50%;
-        left: 0;
-        transform: translateY(-50%);
-        width: 200px;
-        height: 600px;
-        background-color: #f1f1f1;
-        padding: 10px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      } 
-      .title-panel {
-        position: fixed;
-        top: 0;
-        left: 50%;
-        transform: translate(-50%, -35%);
-        width: 800px;
-        height: 50px;
-        background-color: #f1f1f1;
-        padding: 10px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        text-align: center;
-      }
-    </style>
     <div class="title-panel">
       
       <h1>Title</h1>

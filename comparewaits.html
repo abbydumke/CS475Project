@@ -1,138 +1,117 @@
 <!DOCTYPE html>
 <html>
     <head>
-    
-    <style>
-        .floating-panel {
-          position: fixed;
-          top: 50%;
-          left: 0;
-          transform: translateY(-50%);
-          width: 242px;
-          height: 700px;
-          background-color: #f1f1f1;
-          padding: 10px;
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        } 
-        .title-panel {
-          position: fixed;
-          top: 0;
-          left: 50%;
-          transform: translate(-50%, -35%);
-          width: 500px;
-          height: 50px;
-          background-color: #f1f1f1;
-          padding: 10px;
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-          text-align: center;
-        }
-      </style>
+      <title>Compare Waits</title>
+      <script src="https://d3js.org/d3.v4.js"></script>
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+      <!-- <script src="//d3js.org/d3.v3.min.js"></script> -->
+      <link rel="stylesheet" type="text/css" href="./style.css" />
+      <script type="module" src="./comparewaits.js"></script> 
+      <!-- import jquery -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      
+    </head>
+
+    <body>
       <div class="title-panel">
-        
+          
         <h1>Compare Waits</h1>
       </div>
-      <div class="floating-panel">
-    </head>
-      
+      <div class="floating-panel-2">
+    
         <label for="month"><h3>Select Month:</h3></label>
         <select name="month" id="month">
-          <option value="January">January</option>
-          <option value="February">February</option>
-          <option value="March">March</option>
-          <option value="April">April</option>
-          <option value="May">May</option>
-          <option value="June">June</option>
-          <option value="July">July</option>
-          <option value="August">August</option>
-          <option value="September">September</option>
-          <option value="October">October</option>
-          <option value="November">November</option>
-          <option value="December">December</option>
+          <option value="JAN">January</option>
+          <option value="FEB">February</option>
+          <option value="MAR">March</option>
+          <option value="APR">April</option>
+          <option value="MAY">May</option>
+          <option value="JUN">June</option>
+          <option value="JUL">July</option>
+          <option value="AUG">August</option>
+          <option value="SEP">September</option>
+          <option value="OCT">October</option>
+          <option value="NOV">November</option>
+          <option value="DEC">December</option>
         </select>
   
         <div class="container">
-        <hr>
-        <h3>Select Rides:</h3>
-        <p>Animal Kindom:</p>
-        <div class="container">
-            <input type="checkbox" id="EE" name="EXPEDITION EVEREST" value="EE" >
-            <label for="EE">Expedition Everest</label>
-          </div>
-          <div class="container">
-            <input type="checkbox" id="AFP" name="AVATAR FLIGHT PASSAGE" value="AFP">
-            <label for="AFP">Avatar Flight Passage</label>
-          </div>
-          <div class="container">
-            <input type="checkbox" id="ANR" name="AVATAR NA'VI RIVER" value="ANR" >
-            <label for="ANR">Avatar Na'vi River</label>
-          </div>
-          <div class="container">
-            <input type="checkbox" id="KS" name="KILAMANJARO SAFARIS" value="KS" >
-            <label for="KS">Kilamanjaro Safaris</label>
-          </div>
-          <p>Epcot:</p>
-          <div class="container">
-            <input type="checkbox" id="FEA" name="FROZEN EVER AFTER" value="FEA" >
-            <label for="FEA">Frozen Ever After</label>
-          </div>
-          <div class="container">
-            <input type="checkbox" id="RRA" name="REMY'S RATATOUILLE ADVENTRUE" value="RRA">
-            <label for="RRA">Remy's Ratatouille Adventure</label>
-          </div>
-          <div class="container">
-            <input type="checkbox" id="TT" name="TEST TRACK" value="TT" >
-            <label for="TT">Test Track</label>
-          </div>
-          <p>Hollywood Studios:</p>
-          <div class="container">
-            <input type="checkbox" id="SDD" name="SLINKY DOG DASH" value="SDD" >
-            <label for="SDD">Slinky Dog Dash</label>
-          </div>
-          <div class="container">
-            <input type="checkbox" id="ROR" name="RISE OF RESISTANCE" value="ROR" >
-            <label for="ROR">Rise of Resistance</label>
-          </div>
-          <div class="container">
-            <input type="checkbox" id="MMRR" name="MICKEY MINNIE RUNAWAY RAILWAY" value="MMRR">
-            <label for="MMRR">Mickie Minnie Runaway Railway</label>
-          </div>
-          <div class="container">
-            <input type="checkbox" id="TOT" name="TOWER OF TERROR" value="TOT" >
-            <label for="TOT">Tower of Terror</label>
-          </div>
-          <p>Magic Kingdom:</p>
-          <div class="container">
-            <input type="checkbox" id="SM" name="SPACE MOUNTAIN" value="SM" >
-            <label for="SM">Sace Mountain</label>
-          </div>
-          <div class="container">
-            <input type="checkbox" id="SWMT" name="SEVEN DWARFS MINE TRAIN" value="SWMT" >
-            <label for="SWMT">Seven Dwarfs Mine Train</label>
-          </div>
-          <div class="container">
-            <input type="checkbox" id="BTM" name="BIG THUNDER MOUNTAIN" value="BTM">
-            <label for="BTM">Big Thunder Mountain</label>
-          </div>
-          <div class="container">
-            <input type="checkbox" id="JC" name="JUNGLE CRUISE" value="JC" >
-            <label for="JC">Jungle Cruise</label>
-          </div>
-          <div class="container">
-            <input type="checkbox" id="PPF" name="PETER PAN'S FLIGHT" value="PPF" >
-            <label for="PPF">Peter Pan's Flight</label>
-          </div>
-
           <hr>
-          <button id="compbutton" onclick="window.location.href='index.html'">Compare Waits</button> 
+          <h3>Select Rides:</h3>
+          <p>Animal Kindom:</p>
+          <div class="container">
+
+              <input type="checkbox" id="EE" name="EXPEDITION EVEREST" value="EE" >
+              <label for="EE">Expedition Everest</label>
+            </div>
+            <div class="container">
+              <input type="checkbox" id="AFP" name="AVATAR FLIGHT PASSAGE" value="AFP">
+              <label for="AFP">Avatar Flight Passage</label>
+            </div>
+            <div class="container">
+              <input type="checkbox" id="ANR" name="AVATAR NA'VI RIVER" value="ANR" >
+              <label for="ANR">Avatar Na'vi River</label>
+            </div>
+            <div class="container">
+              <input type="checkbox" id="KS" name="KILAMANJARO SAFARIS" value="KS" >
+              <label for="KS">Kilamanjaro Safaris</label>
+            </div>
+            <p>Epcot:</p>
+            <div class="container">
+              <input type="checkbox" id="FEA" name="FROZEN EVER AFTER" value="FEA" >
+              <label for="FEA">Frozen Ever After</label>
+            </div>
+            <div class="container">
+              <input type="checkbox" id="RRA" name="REMY'S RATATOUILLE ADVENTRUE" value="RRA">
+              <label for="RRA">Remy's Ratatouille Adventure</label>
+            </div>
+            <div class="container">
+              <input type="checkbox" id="TT" name="TEST TRACK" value="TT" >
+              <label for="TT">Test Track</label>
+            </div>
+            <p>Hollywood Studios:</p>
+            <div class="container">
+              <input type="checkbox" id="SDD" name="SLINKY DOG DASH" value="SDD" >
+              <label for="SDD">Slinky Dog Dash</label>
+            </div>
+            <div class="container">
+              <input type="checkbox" id="ROR" name="RISE OF RESISTANCE" value="ROR" >
+              <label for="ROR">Rise of Resistance</label>
+            </div>
+            <div class="container">
+              <input type="checkbox" id="MMRR" name="MICKEY MINNIE RUNAWAY RAILWAY" value="MMRR">
+              <label for="MMRR">Mickie Minnie Runaway Railway</label>
+            </div>
+            <div class="container">
+              <input type="checkbox" id="TOT" name="TOWER OF TERROR" value="TOT" >
+              <label for="TOT">Tower of Terror</label>
+            </div>
+            <p>Magic Kingdom:</p>
+            <div class="container">
+              <input type="checkbox" id="SM" name="SPACE MOUNTAIN" value="SM" >
+              <label for="SM">Sace Mountain</label>
+            </div>
+            <div class="container">
+              <input type="checkbox" id="SWMT" name="SEVEN DWARFS MINE TRAIN" value="SWMT" >
+              <label for="SWMT">Seven Dwarfs Mine Train</label>
+            </div>
+            <div class="container">
+              <input type="checkbox" id="BTM" name="BIG THUNDER MOUNTAIN" value="BTM">
+              <label for="BTM">Big Thunder Mountain</label>
+            </div>
+            <div class="container">
+              <input type="checkbox" id="JC" name="JUNGLE CRUISE" value="JC" >
+              <label for="JC">Jungle Cruise</label>
+            </div>
+            <div class="container">
+              <input type="checkbox" id="PPF" name="PETER PAN'S FLIGHT" value="PPF" >
+              <label for="PPF">Peter Pan's Flight</label>
+            </div>
+
+            <hr>
+            <button id="compbutton" onclick="window.location.href='index.html'">Compare Waits</button> 
+            <button class="button" onclick="window.location.href='index.html'">Go Back</button>
         </div>  
-
-<style>
-    .button {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-    }
-</style>
-<button class="button" onclick="window.location.href='index.html'">Go Back</button>
-
+        <div id="my_dataviz"></div>
 </html>
+<body>
