@@ -1,3 +1,53 @@
+
+.floating-panel {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 200px;
+  height: 600px;
+  background-color: #f1f1f1;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+} 
+
+my_dataviz {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%);
+  width: 242px;
+  height: 700px;
+  background-color: #f1f1f1;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+} 
+
+.floating-panel-2 {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 242px;
+  height: 700px;
+  background-color: #f1f1f1;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+} 
+
+.title-panel {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -35%);
+  width: 800px;
+  height: 50px;
+  background-color: #f1f1f1;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
 /* 
  * Always set the map height explicitly to define the size of the div element
  * that contains the map. 

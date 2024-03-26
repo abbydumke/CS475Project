@@ -25,7 +25,7 @@ function filterMarkers() {
   drawMarkers();
 }
 
-function makeLinePlot(rides, month){
+function makeLinePlot(ride, month){
   // set the dimensions and margins of the graph
   var margin = {top: 10, right: 30, bottom: 30, left: 30},
   width = 600 - margin.left - margin.right,
@@ -53,9 +53,10 @@ function makeLinePlot(rides, month){
 
   
   d3.csv("overallwait1.csv", function(data) {
+
     //for each element in rides, do something
-    rides.forEach(function(ride){
-    console.log(ride);
+    // rides.forEach(function(ride){
+    // console.log(ride);
     //get all data rows where D.RIDE == ride
     data = data.filter(function(d) {
       return d.RIDE == ride;
@@ -76,21 +77,21 @@ function makeLinePlot(rides, month){
 
     // for ridedata, computer quartiles, median, inter quantile range min and max of AVERAGE_WAIT_TIME_MIN
     // Compute quartiles, median, inter quantile range min and max --> these info are then used to draw the box.
-    var sumstat = d3.nest() // nest function allows to group the calculation per level of a factor
-    .key(function(d) { return d.TIME_OF_DAY;})
-    .rollup(function(d) {
-          var q1      = d3.quantile(d.map(function(g){ return g.AVERAGE_WAIT_TIME_MIN;}).sort(d3.ascending),.25)
-          var median  = d3.quantile(d.map(function(g){ return g.AVERAGE_WAIT_TIME_MIN;}).sort(d3.ascending),.50)
-          var q3      = d3.quantile(d.map(function(g){ return g.AVERAGE_WAIT_TIME_MIN;}).sort(d3.ascending),.75)
+    // var sumstat = d3.nest() // nest function allows to group the calculation per level of a factor
+    // .key(function(d) { return d.TIME_OF_DAY;})
+    // .rollup(function(d) {
+    //       var q1      = d3.quantile(d.map(function(g){ return g.AVERAGE_WAIT_TIME_MIN;}).sort(d3.ascending),.25)
+    //       var median  = d3.quantile(d.map(function(g){ return g.AVERAGE_WAIT_TIME_MIN;}).sort(d3.ascending),.50)
+    //       var q3      = d3.quantile(d.map(function(g){ return g.AVERAGE_WAIT_TIME_MIN;}).sort(d3.ascending),.75)
 
-          var interQuantileRange = q3 - q1
-          var min = d3.min(d.map(function(g){ return g.AVERAGE_WAIT_TIME_MIN;}));
-          var max = d3.max(d.map(function(g){ return g.AVERAGE_WAIT_TIME_MIN;}));
-          // var min = q1 - 1.5 * interQuantileRange
-          // var max = q3 + 1.5 * interQuantileRange
-          return({q1: q1, median: median, q3: q3, interQuantileRange: interQuantileRange, min: min, max: max})
-      })
-      .entries(data)     
+    //       var interQuantileRange = q3 - q1
+    //       var min = d3.min(d.map(function(g){ return g.AVERAGE_WAIT_TIME_MIN;}));
+    //       var max = d3.max(d.map(function(g){ return g.AVERAGE_WAIT_TIME_MIN;}));
+    //       // var min = q1 - 1.5 * interQuantileRange
+    //       // var max = q3 + 1.5 * interQuantileRange
+    //       return({q1: q1, median: median, q3: q3, interQuantileRange: interQuantileRange, min: min, max: max})
+    //   })
+    //   .entries(data)     
   
     //add point wait time for each domain
     svg.selectAll("points")
@@ -113,8 +114,8 @@ function makeLinePlot(rides, month){
         .y(function(d) { return y(d.AVERAGE_WAIT_TIME_MIN) })
       )
     });
-  })  
-  rides = [];
+  // })  
+  // rides = [];
 }
 
 function makeBoxPlot(ride){
@@ -256,7 +257,7 @@ function drawMarkers() {
               makeBoxPlot(d.RIDE);
             }
             else{
-              makeLinePlot(rides, month)
+              makeLinePlot(d.RIDE, month)
             }
 
             
