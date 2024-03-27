@@ -2,13 +2,11 @@
   <!DOCTYPE html>
   <meta charset="utf-8">
   <head>
-    <title>Simple Markers</title>
+    <title>Disney Wait Times</title>
     <script src="https://d3js.org/d3.v4.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <!-- <script src="//d3js.org/d3.v3.min.js"></script> -->
     <link rel="stylesheet" type="text/css" href="./style.css" />
     <script type="module" src="./index.js"></script> 
-    <!-- import jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   </head>
@@ -17,7 +15,7 @@
     
     <div class="title-panel">
       
-      <h1>Title</h1>
+      <h1>Disney Wait Times</h1>
     </div>
     <div class="floating-panel">
       <h2>Filter:</h2>
@@ -39,7 +37,6 @@
         <option value="NOV">November</option>
         <option value="DEC">December</option>
       </select>
-         <!-- when month is selected, call initMap() in index.js-->
       <script>
         document.getElementById("month").addEventListener("change", function() {
           initMap();
