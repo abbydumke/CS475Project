@@ -243,7 +243,7 @@ function initMap() {
         elementType: "labels",
         stylers: [
           {
-            visibility: "off" // Hide points of interest labels
+            visibility: "off" 
           }
         ]
       }
