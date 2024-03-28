@@ -51,8 +51,6 @@ function makePlot(){
     .domain([ymin,ymax + 10])
     .range([height, 0])
     svg.append("g").call(d3.axisLeft(y))
-  return svg
-  
 }
 
 function makeLinePlot(ride, month, color){

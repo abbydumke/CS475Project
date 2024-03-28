@@ -2,7 +2,6 @@
 const center = { lat: 28.39109030017273, lng: -81.58097911833917};
 var all_markers = [];
 var selected_parks = [];
-var rides = [];
 var map = null;
 var infoWindow = null;
 
@@ -61,7 +60,6 @@ function makeLinePlot(ride, month){
     data = data.filter(function(d) {
       return d.MONTH == month;
     });
-
     // Show the Y scale
     var ymax = d3.max(data, function(d) { return +d.AVERAGE_WAIT_TIME_MIN; });
     var ymin = d3.min(data, function(d) { return +d.AVERAGE_WAIT_TIME_MIN; });
@@ -69,7 +67,6 @@ function makeLinePlot(ride, month){
       .domain([ymin,ymax + 10])
       .range([height, 0])
       svg.append("g").call(d3.axisLeft(y))
-
     svg.selectAll("points")
       .data(data)
       .enter()
@@ -90,98 +87,94 @@ function makeLinePlot(ride, month){
         .y(function(d) { return y(d.AVERAGE_WAIT_TIME_MIN) })
       )
     });
-  // })  
-  // rides = [];
 }
 
 function makeBoxPlot(ride){
-    // set the dimensions and margins of the graph
-    var margin = {top: 10, right: 30, bottom: 30, left: 30},
-        width = 600 - margin.left - margin.right,
-        height = 525 - margin.top - margin.bottom;
+  var margin = {top: 10, right: 30, bottom: 30, left: 30},
+  width = 600 - margin.left - margin.right,
+  height = 500 - margin.top - margin.bottom;
 
-    // append the svg object to the body of the page
-    var svg = d3.select("#my_dataviz")
-            .append("svg")
-            .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
-            .append("g")
-            .attr("transform",
-                "translate(" + margin.left + "," + margin.top + ")");
-    // Read the data and compute summary statistics for each species
-    d3.csv("boxplotdata.csv", function(data) {
-      //get all data rows where D.RIDE == ride
-      data = data.filter(function(d) {
-        return d.RIDE == ride;
-      });
+  // append the svg object to the body of the page
+  var svg = d3.select("#my_dataviz")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")");
 
-      // Show the X scale
-      var x = d3.scaleBand()
-        .range([ 0, width ])
-        .domain(["12 AM", "7 AM", "8 AM", "9 AM", "10 AM", "11 AM", "12 PM", "1 PM", "2 PM", "3 PM", "4 PM", "5 PM", "6 PM", "7 PM", "8 PM", "9 PM", "10 PM", "11 PM"])
-        .paddingInner(1)
-        .paddingOuter(.5)
-        svg.append("g")
-        .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x))
-
-      // Show the Y scale
-      //get the max of the max values
-      var ymax = d3.max(data, function(d) { return d.max; });
-      var ymin = d3.min(data, function(d) { return d.min; });
-      var y = d3.scaleLinear()
-      var domainValue = (ride !== 'SLINKY DOG DASH' && ride !== 'RISE OF RESISTANCE' && ride !== 'AVATAR FLIGHT PASSAGE') ? ymax : 125;
-      domainValue = (ride == 'KILAMANJARO SAFARIS') ? 70 : domainValue;
-      y.domain([0, domainValue]);
+  // Show the X scale
+  var x = d3.scaleBand()
+    .range([ 0, width ])
+    .domain(["12 AM", "7 AM", "8 AM", "9 AM", "10 AM", "11 AM", "12 PM", "1 PM", "2 PM", "3 PM", "4 PM", "5 PM", "6 PM", "7 PM", "8 PM", "9 PM", "10 PM", "11 PM"])
+    .paddingInner(1)
+    .paddingOuter(.5)
+    svg.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x))
 
 
-        //.domain([0, 125])
-        y.range([height, 0])
-        svg.append("g").call(d3.axisLeft(y))
 
-      svg
-        .selectAll("vertLines")
-        .data(data)
-        .enter()
-        .append("line")
-        .attr("x1", function(d){return(x(d.TIME_OF_DAY))})
-        .attr("x2", function(d){return(x(d.TIME_OF_DAY))})
-        .attr("y1", function(d){return(y(d.min))})
-        .attr("y2", function(d){return(y(d.max))})
-        .attr("stroke", "black")
-        .style("width", 60)
+  d3.csv("overallwait1.csv", function(data) {
+    //get all data rows where D.RIDE == ride
+    data = data.filter(function(d) {
+      return d.RIDE == ride;
+    });
 
-    
-    // rectangle for the main box
-    var boxWidth = 15
-      svg
-        .selectAll("boxes")
-        .data(data)
-        .enter()
-        .append("rect")
-          .attr("x", function(d){return(x(d.TIME_OF_DAY)-boxWidth/2)})
-          .attr("y", function(d){return(y(d["75%"]))})
-          .attr("height", function(d){return(y(d["25%"])-y(d["75%"]))})
-          .attr("width", boxWidth )
-          .attr("stroke", "black")
-          .style("fill", "#69b3a2")
+    data = data.filter(function(d) {
+      return d.MONTH == month;
+    });
 
-    
-    // Show the median
-    svg
-      .selectAll("medianLines")
+    // Show the Y scale
+    var ymax = d3.max(data, function(d) { return +d.AVERAGE_WAIT_TIME_MIN; });
+    var ymin = d3.min(data, function(d) { return +d.AVERAGE_WAIT_TIME_MIN; });
+    var y = d3.scaleLinear()
+      .domain([ymin,ymax + 10])
+      .range([height, 0])
+      svg.append("g").call(d3.axisLeft(y))
+
+
+    // for ridedata, computer quartiles, median, inter quantile range min and max of AVERAGE_WAIT_TIME_MIN
+    // Compute quartiles, median, inter quantile range min and max --> these info are then used to draw the box.
+    var sumstat = d3.nest() // nest function allows to group the calculation per level of a factor
+    .key(function(d) { return d.TIME_OF_DAY;})
+    .rollup(function(d) {
+          var q1      = d3.quantile(d.map(function(g){ return g.AVERAGE_WAIT_TIME_MIN;}).sort(d3.ascending),.25)
+          var median  = d3.quantile(d.map(function(g){ return g.AVERAGE_WAIT_TIME_MIN;}).sort(d3.ascending),.50)
+          var q3      = d3.quantile(d.map(function(g){ return g.AVERAGE_WAIT_TIME_MIN;}).sort(d3.ascending),.75)
+
+          var interQuantileRange = q3 - q1
+          var min = d3.min(d.map(function(g){ return g.AVERAGE_WAIT_TIME_MIN;}));
+          var max = d3.max(d.map(function(g){ return g.AVERAGE_WAIT_TIME_MIN;}));
+          // var min = q1 - 1.5 * interQuantileRange
+          // var max = q3 + 1.5 * interQuantileRange
+          return({q1: q1, median: median, q3: q3, interQuantileRange: interQuantileRange, min: min, max: max})
+      })
+      .entries(data)     
+
+    //add point wait time for each domain
+    svg.selectAll("points")
       .data(data)
       .enter()
-      .append("line")
-      .attr("x1", function(d){return(x(d.TIME_OF_DAY)-boxWidth/2) })
-      .attr("x2", function(d){return(x(d.TIME_OF_DAY)+boxWidth/2) })
-      .attr("y1", function(d){return(y(d["50%"]))})
-      .attr("y2", function(d){return(y(d["50%"]))})
+      .append("circle")
+      .attr("cx", function(d){return(x(d.TIME_OF_DAY))})
+      .attr("cy", function(d){return(y(d.AVERAGE_WAIT_TIME_MIN))})
+      .attr("r", 4)
+      .style("fill", "white")
       .attr("stroke", "black")
-      .style("width", 80)   
-    });
-}
+      //add line that connects all points together
+      svg.append("path")
+      .datum(data)
+      .attr("fill", "none")
+      .attr("stroke", "steelblue")
+      .attr("stroke-width", 1.5)
+      .attr("d", d3.line()
+        .x(function(d) { return x(d.TIME_OF_DAY) })
+        .y(function(d) { return y(d.AVERAGE_WAIT_TIME_MIN) })
+      )
 
+  })  
+}
 
 
 
@@ -223,22 +216,17 @@ function drawMarkers() {
             const content = ` <h3>${park}: ${ride}</h3><div id="my_dataviz"></div>`;
             infoWindow.setContent(content);
             infoWindow.open(map, marker);
-            //get month by finding the selected month in index.html
+      
             var month = document.getElementById("month").value;
-            rides.push(d.RIDE);
-            console.log(month);
-
             if (month == "overall"){
               makeBoxPlot(d.RIDE);
             }
             else{
-              makeLinePlot(d.RIDE, month)
+              makeLinePlot(d.RIDE, month);
             }
-
             
           });
         }
-
     });
   });
 }
@@ -248,7 +236,7 @@ function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     zoom: 13,
     center: center,
-    disableDefaultUI: true, // Disable default UI controls
+    disableDefaultUI: true,
     styles: [
       {
         featureType: "poi",

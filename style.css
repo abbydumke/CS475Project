@@ -1,4 +1,3 @@
-
 .floating-panel {
   position: fixed;
   top: 50%;
@@ -40,7 +39,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-   transform: translate(50%, -50%);
+   transform: translate(-50%, -50%);
 }
        
   
@@ -119,6 +118,22 @@
     background-color: #FF0000;
   }
 
+  input[type="checkbox"][name="animalkingdom"]:checked {
+    background-color: #000000;
+  }
+
+  input[type="checkbox"][name="epcot"]:checked {
+    background-color: #000000;
+  }
+
+  input[type="checkbox"][name="hollywoodstudios"]:checked {
+    background-color: #000000;
+  }
+
+  input[type="checkbox"][name="magickingdom"]:checked {
+    background-color: #000000;
+  }
+
         
 
 .title-panel {
@@ -134,17 +149,10 @@
   text-align: center;
 }
 
-/* 
- * Always set the map height explicitly to define the size of the div element
- * that contains the map. 
- */
 #map {
   height: 100%;
 }
 
-/* 
- * Optional: Makes the sample page fill the window. 
- */
 html,
 body {
   height: 100%;
@@ -152,7 +160,7 @@ body {
   padding: 0;
 }
 
-/* Styles for html table */
+
 table {
   border-collapse: collapse;
   width: 100%;
