@@ -54,6 +54,8 @@ function makePlot(){
 }
 
 function makeLinePlot(ride, month, color){
+  console.log(global_data);
+    console.log(ride);
      var data = global_data.filter(function(d) {
        return d.RIDE == ride;
      });
@@ -122,7 +124,6 @@ function initPlot() {
             makeLinePlot(ride, month);
         });
 
-  
     });
     //when ride is deselected, remove ride from plot
     $('input[type=checkbox]').click(function() {
