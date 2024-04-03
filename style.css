@@ -8,9 +8,18 @@
   background-color: #f1f1f1;
   padding: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  font-family: Arial, Helvetica, sans-serif;
 } 
 
-.my_dataviz {
+h1 { 
+  /* custom font ttf */
+  font-family: 'DisneyFont';
+
+
+
+}
+
+.boxplot_div {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -142,7 +151,7 @@
   left: 50%;
   transform: translate(-50%, -35%);
   width: 700px;
-  height: 50px;
+  height: 75px;
   background-color: #f1f1f1;
   padding: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
