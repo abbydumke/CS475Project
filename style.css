@@ -5,7 +5,7 @@
   transform: translateY(-50%);
   width: 200px;
   height: 600px;
-  background-color: #af805c;
+  background-color: #f1f1f1;
   padding: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   font-family: Arial, Helvetica, sans-serif;
@@ -153,14 +153,24 @@ h1 {
   transform: translate(-50%, -35%);
   width: 700px;
   height: 75px;
-  background-color: #af805c; 
-  background: "sparkle.png";
-  background-repeat: repeat;
+  background-color: #9b9b9b; 
   padding: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
 
+.title-panel1 {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -35%);
+  width: 700px;
+  height: 75px;
+  background-color: #f1f1f1; 
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
 #map {
   height: 100%;
 }

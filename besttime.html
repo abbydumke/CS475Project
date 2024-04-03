@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<body>
     <title>Best Times to Visit</title>
     <style>
         .button {
@@ -9,36 +10,60 @@
             right: 20px;
         }
     </style>
+  
+    <style>
+        body {
+            background-image: url('mouseoutline.png');
+            background-repeat: repeat;
+            background-attachment: fixed;
+            background-size: 25% 25%;
+       
+        }
+    </style>
+    
 
     <style>
         body {
             font-family: Arial, sans-serif;
         }
     </style>
-</head>
-<body>
+<!-- add floating panel to middle of page -->
+<style>
+    .floating-panel3 {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #f1f1f1;
+        padding: 20px;
+        border: 4px solid #a2a2a2;
+        width: 50%;
+        text-align: center;
+    }
+</style>
 
+<div class="floating-panel3">
     <h1>By Month:</h1>
-    <h2>Quiestest Month</h2>
+    <h3>Quiestest Month</h3>
     <p>Overall: September (approx. 43 minutes)</p>
     <p>Animal Kingdom: September (approx. 40 minutes)</p>
     <p>Epcot: May (approx. 48 minutes)</p>
     <p>Hollywood Studios: September (approx. 47 minutes)</p>
     <p>Magic Kingdom: September (approx. 39 minutes)</p>
 
-    <h2>Busiest Month</h2>
+    <h3>Busiest Month</h3>
     <p>Overall: December (approx. 61 minutes)</p>
     </p>Animal Kingdom: February (approx. 61 minutes)</p>
     </p>Epcot: December (approx. 68 minutes)</p>
     </p>Hollywood Studios: February (approx. 72 minutes)</p>
     </p>Magic Kingdom: April (approx. 58 minutes)</p>
-    </p>   </p>
-    
-    <h1>By Holiday:</h1>
 
+    <h1>By Holiday:</h1>
     <p>Busiest Holiday: New Year's Day (approx. 74 minutes)</p>
     </p>Quiestest Holiday: Labor Day (approx. 38 minutes)</p>
+    <br>    
     <button class="button" onclick="window.location.href='index.html'">Go Back</button>
+</div>
 
-</body>
 </html>
+</body>
