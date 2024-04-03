@@ -99,7 +99,7 @@ function makeBoxPlot(ride){
   // set the dimensions and margins of the graph
   var margin = {top: 10, right: 30, bottom: 30, left: 30},
       width = 600 - margin.left - margin.right,
-      height = 525 - margin.top - margin.bottom;
+      height = 505 - margin.top - margin.bottom;
 
   // append the svg object to the body of the page
   var svg = d3.select("#boxplot_div")
@@ -231,15 +231,64 @@ function drawMarkers() {
           all_markers.push(marker);
            //if ridetype is boat, change marker color to blue
           if (d.RTYPE == "B") {
-            marker.setIcon("http://maps.google.com/mapfiles/ms/icons/blue-dot.png");
+            const svgMarker = {
+                // path: "M496 128v16a8 8 0 0 1-8 8h-24v12c0 6.627-5.373 12-12 12H60c-6.627 0-12-5.373-12-12v-12H24a8 8 0 0 1-8-8v-16a8 8 0 0 1 4.941-7.392l232-88a7.996 7.996 0 0 1 6.118 0l232 88A8 8 0 0 1 496 128zm-24 304H40c-13.255 0-24 10.745-24 24v16a8 8 0 0 0 8 8h464a8 8 0 0 0 8-8v-16c0-13.255-10.745-24-24-24zM96 192v192H60c-6.627 0-12 5.373-12 12v20h416v-20c0-6.627-5.373-12-12-12h-36V192h-64v192h-64V192h-64v192h-64V192H96z",
+              // path: "M5 8V17.0192M9 8V17M15 8V17M19 8V17.0192M5 17.0192C5.31428 17 5.70173 17 6.2 17H17.8C18.2983 17 18.6857 17 19 17.0192M5 17.0192C4.60779 17.0431 4.32953 17.097 4.09202 17.218C3.71569 17.4097 3.40973 17.7157 3.21799 18.092C3 18.5198 3 19.0799 3 20.2V21H21V20.2C21 19.0799 21 18.5198 20.782 18.092C20.5903 17.7157 20.2843 17.4097 19.908 17.218C19.6705 17.097 19.3922 17.0431 19 17.0192M3 5.5V8H21V5.5L12 3L3 5.5Z",
+              path: "M16 6.28a1.23 1.23 0 0 0-.62-1.07l-6.74-4a1.27 1.27 0 0 0-1.28 0l-6.75 4a1.25 1.25 0 0 0 0 2.15l1.92 1.12v2.81a1.28 1.28 0 0 0 .62 1.09l4.25 2.45a1.28 1.28 0 0 0 1.24 0l4.25-2.45a1.28 1.28 0 0 0 .62-1.09V8.45l1.24-.73v2.72H16V6.28zm-3.73 5L8 13.74l-4.22-2.45V9.22l3.58 2.13a1.29 1.29 0 0 0 1.28 0l3.62-2.16zM8 10.27l-6.75-4L8 2.26l6.75 4z",
+              // path: "M 0,0 A 5,5 0 1,1 0,-1 Z",
+              fillColor: "green",
+              fillOpacity: 0.7,
+              strokeWeight: 1,
+              rotation: 0,
+              // scale: 0.1,
+              scale: 2,
+              anchor: new google.maps.Point(0, 20),
+          };
+          // marker.setIcon(svgMarker);
+          marker.setIcon("boat1.png");
+          
+            // marker.setIcon("http://maps.google.com/mapfiles/ms/icons/green-dot.png");
+            // marker.setIcon("https://www.svgrepo.com/show/51816/roller-coaster.svg");
+          
+          // make the marker smaller
+            // marker.setScaledSize(0.002, 0.002);
+            //marker.setIcon("http://maps.google.com/mapfiles/ms/icons/blue-dot.png");
           }
           all_markers.push(marker);
           if (d.RTYPE == "MR") {
-            marker.setIcon("http://maps.google.com/mapfiles/ms/icons/red-dot.png");
+            const svgMarker = {
+              // path: "M496 128v16a8 8 0 0 1-8 8h-24v12c0 6.627-5.373 12-12 12H60c-6.627 0-12-5.373-12-12v-12H24a8 8 0 0 1-8-8v-16a8 8 0 0 1 4.941-7.392l232-88a7.996 7.996 0 0 1 6.118 0l232 88A8 8 0 0 1 496 128zm-24 304H40c-13.255 0-24 10.745-24 24v16a8 8 0 0 0 8 8h464a8 8 0 0 0 8-8v-16c0-13.255-10.745-24-24-24zM96 192v192H60c-6.627 0-12 5.373-12 12v20h416v-20c0-6.627-5.373-12-12-12h-36V192h-64v192h-64V192h-64v192h-64V192H96z",
+            // path: "M5 8V17.0192M9 8V17M15 8V17M19 8V17.0192M5 17.0192C5.31428 17 5.70173 17 6.2 17H17.8C18.2983 17 18.6857 17 19 17.0192M5 17.0192C4.60779 17.0431 4.32953 17.097 4.09202 17.218C3.71569 17.4097 3.40973 17.7157 3.21799 18.092C3 18.5198 3 19.0799 3 20.2V21H21V20.2C21 19.0799 21 18.5198 20.782 18.092C20.5903 17.7157 20.2843 17.4097 19.908 17.218C19.6705 17.097 19.3922 17.0431 19 17.0192M3 5.5V8H21V5.5L12 3L3 5.5Z",
+            path: "M16 6.28a1.23 1.23 0 0 0-.62-1.07l-6.74-4a1.27 1.27 0 0 0-1.28 0l-6.75 4a1.25 1.25 0 0 0 0 2.15l1.92 1.12v2.81a1.28 1.28 0 0 0 .62 1.09l4.25 2.45a1.28 1.28 0 0 0 1.24 0l4.25-2.45a1.28 1.28 0 0 0 .62-1.09V8.45l1.24-.73v2.72H16V6.28zm-3.73 5L8 13.74l-4.22-2.45V9.22l3.58 2.13a1.29 1.29 0 0 0 1.28 0l3.62-2.16zM8 10.27l-6.75-4L8 2.26l6.75 4z",
+            // path: "M 0,0 A 5,5 0 1,1 0,-1 Z",
+            fillColor: "green",
+            fillOpacity: 0.7,
+            strokeWeight: 1,
+            rotation: 0,
+            // scale: 0.1,
+            scale: 2,
+            anchor: new google.maps.Point(0, 20),
+        };
+        // marker.setIcon(svgMarker);
+        marker.setIcon("moving-ride.png");
           }
           all_markers.push(marker);
           if (d.RTYPE == "O") {
-            marker.setIcon("http://maps.google.com/mapfiles/ms/icons/pink-dot.png");
+            const svgMarker = {
+              // path: "M496 128v16a8 8 0 0 1-8 8h-24v12c0 6.627-5.373 12-12 12H60c-6.627 0-12-5.373-12-12v-12H24a8 8 0 0 1-8-8v-16a8 8 0 0 1 4.941-7.392l232-88a7.996 7.996 0 0 1 6.118 0l232 88A8 8 0 0 1 496 128zm-24 304H40c-13.255 0-24 10.745-24 24v16a8 8 0 0 0 8 8h464a8 8 0 0 0 8-8v-16c0-13.255-10.745-24-24-24zM96 192v192H60c-6.627 0-12 5.373-12 12v20h416v-20c0-6.627-5.373-12-12-12h-36V192h-64v192h-64V192h-64v192h-64V192H96z",
+            // path: "M5 8V17.0192M9 8V17M15 8V17M19 8V17.0192M5 17.0192C5.31428 17 5.70173 17 6.2 17H17.8C18.2983 17 18.6857 17 19 17.0192M5 17.0192C4.60779 17.0431 4.32953 17.097 4.09202 17.218C3.71569 17.4097 3.40973 17.7157 3.21799 18.092C3 18.5198 3 19.0799 3 20.2V21H21V20.2C21 19.0799 21 18.5198 20.782 18.092C20.5903 17.7157 20.2843 17.4097 19.908 17.218C19.6705 17.097 19.3922 17.0431 19 17.0192M3 5.5V8H21V5.5L12 3L3 5.5Z",
+            path: "M16 6.28a1.23 1.23 0 0 0-.62-1.07l-6.74-4a1.27 1.27 0 0 0-1.28 0l-6.75 4a1.25 1.25 0 0 0 0 2.15l1.92 1.12v2.81a1.28 1.28 0 0 0 .62 1.09l4.25 2.45a1.28 1.28 0 0 0 1.24 0l4.25-2.45a1.28 1.28 0 0 0 .62-1.09V8.45l1.24-.73v2.72H16V6.28zm-3.73 5L8 13.74l-4.22-2.45V9.22l3.58 2.13a1.29 1.29 0 0 0 1.28 0l3.62-2.16zM8 10.27l-6.75-4L8 2.26l6.75 4z",
+            // path: "M 0,0 A 5,5 0 1,1 0,-1 Z",
+            fillColor: "green",
+            fillOpacity: 0.7,
+            strokeWeight: 1,
+            rotation: 0,
+            // scale: 0.1,
+            scale: 2,
+            anchor: new google.maps.Point(0, 20),
+        };
+        // marker.setIcon(svgMarker);
+        marker.setIcon("sim.png");
           }
           all_markers.push(marker);
 
