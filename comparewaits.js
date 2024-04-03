@@ -141,6 +141,12 @@ function initPlot() {
       });
     });
   });
+
+
+  const url_to_font_name = 'walter-font/Walter-zrol.ttf'
+  const font_name = new FontFace('DisneyFont', `url(${url_to_font_name})`);
+  document.fonts.add(font_name);
+  font_name.load()
 }
 
 window.onload = initPlot;
