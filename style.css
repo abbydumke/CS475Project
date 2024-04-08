@@ -68,7 +68,7 @@ h1 {
     transition: background-color 0.3s;
   }
   
-  input[type="checkbox"][name="PETER PAN'S FLIGHT"]:checked {
+  input[type="checkbox"][name="PETER PANS FLIGHT"]:checked {
     background-color: #00CED1;
   }
 
@@ -111,7 +111,7 @@ h1 {
     background-color: #FFA500;
   }
 
-  input[type="checkbox"][name="REMY'S RATATOUILLE ADVENTRUE"]:checked {
+  input[type="checkbox"][name="REMYS RATATOUILLE ADVENTRUE"]:checked {
     background-color: #00FFFF;
   }
 
